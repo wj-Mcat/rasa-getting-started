@@ -1,0 +1,38 @@
+intents:
+  - bot_challenge
+  - mood_unhappy
+  - mood_great
+  - deny
+  - affirm
+  - goodbye
+  - greet
+  - inform
+
+actions:
+  - utter_greet
+  - utter_working_on_it
+  - utter_goodbye
+  - utter_common_comfort
+  - utter_default
+
+responses:
+  utter_greet:
+    - text: "您好，我是BotBay ～"
+    - text: "您好，我是BotBay，您的专属私人助理"
+    - text: "你好啊"
+
+  utter_working_on_it:
+    - text: "正在查询中，请稍后 ..."
+
+  utter_goodbye:
+    - text: "再见！~~"
+    - text: "咱们江湖有缘再见"
+    - text: "古德拜 ～"
+    - text: "good bye"
+
+  utter_default:
+    - text: "系统不明白您说的话"
+
+  utter_common_comfort:
+    - text: "就算世界都与你为敌，我都会支持你，陪着你"
+

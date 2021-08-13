@@ -1,0 +1,8 @@
+version: "2.0"
+nlu:
+- regex: date
+  examples: |
+    - [\d]{4}年[\d]+月[\d]+日
+    - [\d]{4}
+    - 早上好
+    - 中午好

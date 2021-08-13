@@ -1,0 +1,16 @@
+flake8
+mypy
+mypy_extensions
+pycodestyle
+pylint
+pylint-quotes
+pytest
+pytype>=2021.3.3
+semver
+pyee
+requests
+lxml
+pre-commit
+mkdocs
+mkdocs-material
+types-requests

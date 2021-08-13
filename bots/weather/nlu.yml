@@ -1,0 +1,15 @@
+nlu:
+- intent: ask_weather
+  examples: |
+    - 帮我查一下天气
+    - 查一下天气
+    - 天气
+    - [北京](city)天气
+    - 查一下[今天](date)[北京](city)天气
+    - 帮我查一下[北京](city)天气
+
+- intent: inform
+  examples: |
+    - [北京](city)
+    - [今天](date)
+    - [今天晚上九点钟](date)

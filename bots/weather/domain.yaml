@@ -1,0 +1,25 @@
+intents:
+  - ask_weather
+  - inform
+
+slots:
+  city:
+    type: text
+  date:
+    type: text
+
+actions:
+  - utter_ask_address
+  - utter_ask_date
+  - utter_ask_city
+  - action_report_weather
+
+responses:
+  utter_ask_address:
+    - text: "哪里呢？"
+
+  utter_ask_date:
+    - text: "什么时候？"
+
+  utter_ask_city:
+    - text: 哪座城市

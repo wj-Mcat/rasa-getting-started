@@ -1,0 +1,7 @@
+version: "2.0"
+nlu:
+- intent: inform
+  examples: |
+    - [北京](city)
+    - [上海](city)
+    - [早上九点钟](date)

@@ -1,0 +1,31 @@
+version: "2.0"
+stories:
+- story: 携带有全部信息的story
+  steps:
+  - intent: ask_weather
+  - slot_was_set:
+    - city: 北京
+    - date: 明天
+  - action: action_report_weather
+
+- story: unhappy path：只携带有城市的信息
+  steps:
+    - intent: ask_weather
+    - slot_was_set:
+      - city: 北京
+    - action: utter_ask_date
+    - intent: inform
+    - slot_was_set:
+      - date: 明天
+    - action: action_report_weather
+
+- story: unhappy path 只携带有时间信息
+  steps:
+    - intent: ask_weather
+    - slot_was_set:
+      - date: 今天
+    - action: utter_ask_city
+    - intent: inform
+    - slot_was_set:
+      - city: 北京
+    - action: action_report_weather
