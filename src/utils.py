@@ -47,3 +47,29 @@ def parse_date(sentence: str, single_date: bool = True) -> Union[None, datetime,
 
     return datetime_list
 
+def find_yaml_files(base_dir: str) -> List[str]:
+    """find all of yaml files with recursion mode
+
+    Args:
+        base_dir (str): the base directory of files
+
+    Returns:
+        List[str]: the yaml files 
+    """
+    files_or_directories: List[str] = []
+    # 1. find all files/directories in the current dir
+    for file_or_dir in os.listdir(base_dir):
+
+        path = os.path.join(base_dir, file_or_dir)
+        if os.path.isdir(path):
+            files_or_directories.extend(
+                find_yaml_files(path)
+            )
+            continue
+
+        # 2. if there is dir, find with recursion mode
+        if file_or_dir.endswith('.yml') or file_or_dir.endswith('.yaml'):
+            files_or_directories.append(path)
+        
+    return files_or_directories
+    

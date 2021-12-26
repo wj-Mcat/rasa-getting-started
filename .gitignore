@@ -131,3 +131,5 @@ debug.py
 models/
 data/
 actions/
+.vscode/
+.rasa/

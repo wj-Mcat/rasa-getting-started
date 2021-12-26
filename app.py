@@ -10,4 +10,5 @@ app.config['SWAGGER'] = {
 swagger = Swagger(app, template_file='rasa-swagger.yml')
 
 
+# open website: http://127.0.0.1:5004/apidocs
 app.run(port=5004)

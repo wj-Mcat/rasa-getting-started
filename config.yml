@@ -7,19 +7,37 @@ pipeline:
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
   - name: JiebaTokenizer
-  - name: LanguageModelFeaturizer
-    model_name: "bert"
-    model_weights: "bert-base-chinese"
+  # - name: LanguageModelFeaturizer
+  #   model_weights: "bert-base-chinese"
+  #   model_name: "bert"
+
   - name: RegexFeaturizer
-    case_sensitive: True
-    use_word_boundaries: True
+  - name: CountVectorsFeaturizer
+    # Analyzer to use, either 'word', 'char', or 'char_wb'
+    "analyzer": "char"
+    # Set the lower and upper boundaries for the n-grams
+    "min_ngram": 1
+    "max_ngram": 12
+    # Whether to use a shared vocab
+    "use_shared_vocab": True
+  - name: CountVectorsFeaturizer
+    # Analyzer to use, either 'word', 'char', or 'char_wb'
+    "analyzer": "word"
+    # Set the lower and upper boundaries for the n-grams
+    "min_ngram": 1
+    "max_ngram": 4
+    # Whether to use a shared vocab
+    "use_shared_vocab": True
+
   - name: DIETClassifier
     epochs: 100
-    constrain_similarities: true
+    constrain_similarities: True
+
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
     constrain_similarities: true
+    
   - name: FallbackClassifier
     threshold: 0.7
     ambiguity_threshold: 0.1

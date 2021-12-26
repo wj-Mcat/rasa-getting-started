@@ -5,8 +5,14 @@ intents:
 slots:
   city:
     type: text
+    mappings:
+    - type: from_entity
+      entity: city
   date:
     type: text
+    mappings:
+    - type: from_entity
+      entity: date
 
 actions:
   - utter_ask_address
