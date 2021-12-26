@@ -132,3 +132,4 @@ models/
 data/
 actions/
 .vscode/
+.rasa/
