@@ -1,0 +1,6 @@
+version: "3.0"
+rules:
+- rule: 回复pywechaty的FAQ问题
+  steps:
+  - intent: pywechaty
+  - action: utter_pywechaty

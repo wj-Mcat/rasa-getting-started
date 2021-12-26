@@ -1,0 +1,18 @@
+version: "3.0"
+nlu:
+- intent: pywechaty/ask_token
+  examples: |
+    - 请问token在哪里找？
+    - 我如何获取token？
+    - 如何获得免费token？
+    - 免费的token在哪里找呢？
+    - 我想要一个token该去哪里找？
+- intent: pywechaty/ask_network
+  examples: |
+    - The network is not good, the bot will try to restart after 60 seconds.
+    - The network is not good
+
+- intent: pywechaty/ask_feature
+  examples: |
+    - 请问wechaty支持发送语音消息吗？
+    - wechaty支持发送语音消息吗？

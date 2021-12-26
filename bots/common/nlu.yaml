@@ -1,4 +1,4 @@
-version: "2.0"
+version: "3.0"
 nlu:
 - intent: greet
   examples: |
@@ -14,6 +14,14 @@ nlu:
     - hi
     - hello
     - 喂喂
+    - 你好
+    - 您好
+    - Hello
+    - hello
+    - Hi
+    - 喂
+    - 在么
+    - 你好啊
 - intent: goodbye
   examples: |
     - 拜拜
@@ -37,6 +45,12 @@ nlu:
     - 没问题
     - 听起来不错
     - 可以
+    - 好的，谢谢
+    - OK
+    - 知道了
+    - 解决啦
+    - 解决了，谢谢你
+    - 解决了，谢谢
 - intent: deny
   examples: |
     - 不啦
@@ -46,6 +60,14 @@ nlu:
     - 不行
     - 不太喜欢
     - 不可以
+    - 没有，你太蠢了吧
+    - 没有，你太蠢了
+    - 不用了，谢谢
+    - 没有
+    - 完全没有解决
+    - 你太蠢了吧
+    - 不用了
+    - 不用啦
 - intent: mood_great
   examples: |
     - 开心

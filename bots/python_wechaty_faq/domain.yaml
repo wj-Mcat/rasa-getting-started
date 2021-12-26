@@ -1,0 +1,13 @@
+version: "3.0"
+intents:
+- pywechaty
+
+responses:
+  utter_pywechaty/ask_token:
+  - text: you can checkout all of puppet service from http://wechaty.js.org/docs/puppet-services/overview
+
+  utter_pywechaty/ask_network:
+  - text: 这个原因还是在于Docker Service与Bot没有办法连接上，要么是Docker Service启动失败，服务器的端口没有开启等方法
+
+  utter_pywechaty/ask_feature:
+  - text: 我们推荐你从这里来查看不同token的不同特征的对比 https://github.com/wechaty/wechaty-puppet-padlocal
