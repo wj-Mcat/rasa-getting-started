@@ -7,7 +7,7 @@ info:
     conversations as well as endpoints to modify them. Additionally,
     endpoints for training and testing models are provided.
 servers:
-  - url: "http://10.172.134.134:5005"
+  - url: "http://127.0.0.1:5005"
     description: "Local development server"
 
 paths:
