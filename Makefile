@@ -113,7 +113,8 @@ train-nlu:
 
 .PHONY: train
 train:
-	rasa train -d ./data/domain --data ./data/nlu ./data/stories --force
+	# make merge
+	rasa train
 
 .PHONY: validate
 validate:

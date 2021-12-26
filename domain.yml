@@ -1,0 +1,83 @@
+version: '3.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- bot_challenge:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- deny:
+    use_entities: true
+- affirm:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- greet:
+    use_entities: true
+- inform:
+    use_entities: true
+- pywechaty:
+    use_entities: true
+- ask_weather:
+    use_entities: true
+entities: []
+slots:
+  city:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: city
+  date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: date
+responses:
+  utter_greet:
+  - text: 您好，我是BotBay ～
+  - text: 您好，我是BotBay，您的专属私人助理
+  - text: 你好啊
+  utter_working_on_it:
+  - text: 正在查询中，请稍后 ...
+  utter_goodbye:
+  - text: 再见！~~
+  - text: 咱们江湖有缘再见
+  - text: 古德拜 ～
+  - text: good bye
+  utter_default:
+  - text: 系统不明白您说的话
+  utter_common_comfort:
+  - text: 就算世界都与你为敌，我都会支持你，陪着你
+  utter_pywechaty/ask_token:
+  - text: you can checkout all of puppet service from http://wechaty.js.org/docs/puppet-services/overview
+  utter_pywechaty/ask_network:
+  - text: 这个原因还是在于Docker Service与Bot没有办法连接上，要么是Docker Service启动失败，服务器的端口没有开启等方法
+  utter_pywechaty/ask_feature:
+  - text: 我们推荐你从这里来查看不同token的不同特征的对比 https://github.com/wechaty/wechaty-puppet-padlocal
+  utter_ask_address:
+  - text: 哪里呢？
+  utter_ask_date:
+  - text: 什么时候？
+  utter_ask_city:
+  - text: 哪座城市
+actions:
+- action_report_weather
+- utter_ask_address
+- utter_ask_city
+- utter_ask_date
+- utter_common_comfort
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_working_on_it
+forms: {}
+e2e_actions: []
