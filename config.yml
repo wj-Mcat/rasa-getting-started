@@ -3,15 +3,24 @@
 language: "zh"
 
 pipeline:
-# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+# # bigbrother:根据官方文档做一些优化建议
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
   - name: JiebaTokenizer
   # - name: LanguageModelFeaturizer
   #   model_weights: "bert-base-chinese"
   #   model_name: "bert"
+  # Flag to check whether to split intents
+  # 下面这两项开启True后，可以进行多意图识别
+  # https://rasa.com/docs/rasa/components#:~:text=with%20any%20tokenizer%3A-,intent_tokenization_flag,-indicates%20whether%20to
+    intent_tokenization_flag: false
+  # Symbol on which intent should be split
+    intent_split_symbol: "_"
 
   - name: RegexFeaturizer
+  # 建议下面这一项设为False（默认是True），不然中文实体识别会有很大问题（针对英文不需要）
+  # https://rasa.com/docs/rasa/components#:~:text=the%20DIETClassifier%20components!-,Configuration,-Make%20the%20featurizer
+    use_word_boundaries: False
   - name: CountVectorsFeaturizer
     # Analyzer to use, either 'word', 'char', or 'char_wb'
     "analyzer": "char"
@@ -32,6 +41,10 @@ pipeline:
   - name: DIETClassifier
     epochs: 100
     constrain_similarities: True
+  #开启下面三项，会在训练时每20轮做一次测试，挑选最优模型，避免过拟合，但eonoe需要至少10个，所以适用于≥15个example的情况，不然应该是有反作用的
+    evaluate_every_number_of_epochs: 20
+    evaluate_on_number_of_examples: 10
+    checkpoint_model: True
 
   - name: EntitySynonymMapper
   - name: ResponseSelector
